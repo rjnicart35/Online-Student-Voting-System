@@ -1,0 +1,212 @@
+<?php
+	include_once("admindatabase.php");
+
+	session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Online Student Voting System</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAZlBMVEX///8HcboAbLjt9Pl3qtQAabd4o9AAb7kAZ7ary+QTfL/M2usAZbVRkMjm8fiMtdksf8Abeb5emMxJj8imxeGFsdgAY7XY5/PS4vBupdL3+v3c6fSy0OcAXrKryONIjMY3hMNqnM2QHxkFAAAFFUlEQVR4nO3d62LSQBAF4BDERYXaixakVuv7v6Q0hRqSbHZmL7On9ZzfIcvXncmmzUabhmEYhmEYhmEYhmEYhmEYhnkHOdT+AqWzvPlW+yuUzfKmvX/XxOV1u1is3zGxAy7c+yUeS3TRZaMjHj5i5c9DCKglLluoPP7yfc/rV6CyF5cLt4CJW3+SAHW9iCR0q5++b3nTXh6qWDSAhG7jBV63w4PlvYgjdBtZiZ6OXkmJMMKZEv08Bj7/QIREFKFbi3vwHGEvggh1JXqKrFAxhFFAYS9CCBXLxGUkhYognOnByYtML4LLDYAwrkRPnw3f3dQXSm/VPJ9+/IIujO7Bl6y+os+h6lZtnE0QWFuY0oPHbL4HgZWF2lu1QdbhGawsjLhV60cErCpMLVERsKbQbUR/svBlLejBusLiy0Rt4cwyIbnICEu0ojCxROXAWsKZWzXRMiHswYDQlUtr1IPzQve0LZbfFstEULjyfYuCyXar1j8nkjB/iTZYwoy3av2z4ggL9GB3WhhhiR7szosiLNKD3YlBhJlv1fpnxhCWKtEGRZjvN/qJcyMIi/Vgd3IAYaFl4nz2+sKCPdidvrqwaIk2AMKSF5mXASoLC5doU11Y9iLzMkRVYeke7MaoKTSYwbrC8j3YjVJPWPwqehqmmrDMb/QT49QSmvRgN1AloU0PdiPVEVosE+ehqghFwBwl2lQSmvVgN1gFYdYHoOHR7IWGPdgNZy40LdGmgtBumTgPaCw0LtHGXGh1q9Yf0lRo3YPdmJZC22XiPKihMK0HD1eRo8YJ97cRQ6U9fHkKbZX1DRsl3Lm1mpi4TGyDm4F948YId2u3WCmJib/R363WhsK9e/6Mjpi4Dt6tFobC/ekjGmLiMnEEGgp37vwJOTG1B49AO+FzD74eshUOklyihsK96x8vm8XEW7UXoJVwPzhcMos5StRMuGuHR4dnMcNFxk64HwHDxCw9aCUclqiEKLvZFgAthDs3fegcMVMP2gj7y8TgSO/lJs9V1Ei498xgd6hnFnMCiwune/D12MlZzHUVNRGOl4nBwROzmLEHywt3q9A7C+NZzLZMWAgfAjPYHT6Yxaw9WFx4uB2NN3H8xSxmLtHSwskRxx/ozWLiX9XGM1j+WiqaxVdi7h60EKqIeZcJK6GiUPP3oI1QRtyWKVEbobBQr3IvE4ZCEbGVvNDo78Gre+8PxeR3fEmhCoAzD1+uNnWFolkMZu4BaHVhDuLs88H6wnTi/DN6AKGoF2cSeISNIEybxdAmBAhhCjH4jB5DGF+o4X0yIMJYomCfDIowrlAl+2RghDFE0T4ZHKG+UGV71YCE2lkU7lVDEuqI0r1qUEINUbydEkso70X5bkMwoXQWFftF0YQyomY7JZxQUqiqLc14wjBRt6UZUBgqVOWWZkThPFG76x5SOFeo6i3NmEL/LOpfKwAV+ogRu+5RhdOFGvPmC6xw8qFtzHsTuMJxoca9+QIsHBIj33xBFl4WauybL9DC/ixGv32GLfxHjH85C1x4Jia8fYYuPL03kPD2GbzweRaT3gDFFza3j0kvSL4B4cH3bzzL8gaEiaFQHwqtQ6E+FFqHQn0otA6F+lBoHQr1odA6FOozI/T9dz5FszQUupvPNeIDFhCW/P+e/PECSwjBQiGF+KGQQvxQSCF+KKQQPxRSiB8KKcQPhRTih0KvsH0ruY8UHj68lfx4iBMyDMMwDMMwDMMwDMMwDMP8r/kLTI+WDiEhECMAAAAASUVORK5CYII=" rel="icon">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" >Welcome Admin!</a>  
+            </div>
+    
+            <ul class="nav navbar-top-links navbar-right">
+                        <li><a href="adminlogin.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+            </ul>
+    
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                    
+                        <li>
+                            <a href="adminvoterslist.html"><i class="glyphicon glyphicon-th-list"></i> Voter's List</a>
+                        </li>
+                        <li>
+                            <a href="adminpartylist.html"><i class="glyphicon glyphicon-flag"></i> Partylists</a>
+                        </li>
+    
+                        <li>
+                            <a href="admincandidacy.html"><i class="glyphicon glyphicon-file"></i> Candidacy</a>
+                        </li>
+                        <li>
+                            <a href="adminresult.html"><i class="glyphicon glyphicon-check"></i> Result</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Partylist</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+          
+                        
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            
+                           <div class="panel-body">
+                            <!-- Button trigger modal -->
+                             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add PartyList</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                         <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">Add PartyList</h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <form method="post">
+                                                <form role="form">
+                                                    <fieldset>
+                                                        <div class="form-group"><b>Name of the PartyLists:</b>
+                                                            <input class="form-control" placeholder="" name="name" type="text"  required="" >
+                                                        </div>
+                                                        <div class="form-group"><b>Description:</b>
+                                                            <input class="form-control" placeholder="" name="descript" type="text"  required="" >
+                                                        </div>
+                                                        <!-- Change this to a button or input when using this as a form -->
+                                                        <button type="submit"  name="add" class="btn btn-lg btn-success btn-block">Add</button>
+                                                    </fieldset>
+                                                </form>
+                                            </div>
+                                            </form>
+                                            
+                                        </div>
+                                        <div class="modal-footer">
+                                            
+                                        </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                            <!-- /.modal -->
+                        </div>
+                            
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name of the PartyList</th>
+                                        <th>Description</th>                       
+                                    </tr>
+                                </thead>
+                                <tbody>                               
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Tingog</td>
+                                        <td>Partylist</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Salig</td>
+                                        <td>Partylist</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Kasama</td>
+                                        <td>Partylist</td>
+                                    </tr>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+    
+    
+    <script>
+    $(document).ready(function() {
+        $("#dataTables-example").DataTable({
+            responsive: true
+        });
+    });
+    </script>
+    
+</body>
+
+</html>

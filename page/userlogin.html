@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Online Student Voting System</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAZlBMVEX///8HcboAbLjt9Pl3qtQAabd4o9AAb7kAZ7ary+QTfL/M2usAZbVRkMjm8fiMtdksf8Abeb5emMxJj8imxeGFsdgAY7XY5/PS4vBupdL3+v3c6fSy0OcAXrKryONIjMY3hMNqnM2QHxkFAAAFFUlEQVR4nO3d62LSQBAF4BDERYXaixakVuv7v6Q0hRqSbHZmL7On9ZzfIcvXncmmzUabhmEYhmEYhmEYhmEYhmEYhnkHOdT+AqWzvPlW+yuUzfKmvX/XxOV1u1is3zGxAy7c+yUeS3TRZaMjHj5i5c9DCKglLluoPP7yfc/rV6CyF5cLt4CJW3+SAHW9iCR0q5++b3nTXh6qWDSAhG7jBV63w4PlvYgjdBtZiZ6OXkmJMMKZEv08Bj7/QIREFKFbi3vwHGEvggh1JXqKrFAxhFFAYS9CCBXLxGUkhYognOnByYtML4LLDYAwrkRPnw3f3dQXSm/VPJ9+/IIujO7Bl6y+os+h6lZtnE0QWFuY0oPHbL4HgZWF2lu1QdbhGawsjLhV60cErCpMLVERsKbQbUR/svBlLejBusLiy0Rt4cwyIbnICEu0ojCxROXAWsKZWzXRMiHswYDQlUtr1IPzQve0LZbfFstEULjyfYuCyXar1j8nkjB/iTZYwoy3av2z4ggL9GB3WhhhiR7szosiLNKD3YlBhJlv1fpnxhCWKtEGRZjvN/qJcyMIi/Vgd3IAYaFl4nz2+sKCPdidvrqwaIk2AMKSF5mXASoLC5doU11Y9iLzMkRVYeke7MaoKTSYwbrC8j3YjVJPWPwqehqmmrDMb/QT49QSmvRgN1AloU0PdiPVEVosE+ehqghFwBwl2lQSmvVgN1gFYdYHoOHR7IWGPdgNZy40LdGmgtBumTgPaCw0LtHGXGh1q9Yf0lRo3YPdmJZC22XiPKihMK0HD1eRo8YJ97cRQ6U9fHkKbZX1DRsl3Lm1mpi4TGyDm4F948YId2u3WCmJib/R363WhsK9e/6Mjpi4Dt6tFobC/ekjGmLiMnEEGgp37vwJOTG1B49AO+FzD74eshUOklyihsK96x8vm8XEW7UXoJVwPzhcMos5StRMuGuHR4dnMcNFxk64HwHDxCw9aCUclqiEKLvZFgAthDs3fegcMVMP2gj7y8TgSO/lJs9V1Ei498xgd6hnFnMCiwune/D12MlZzHUVNRGOl4nBwROzmLEHywt3q9A7C+NZzLZMWAgfAjPYHT6Yxaw9WFx4uB2NN3H8xSxmLtHSwskRxx/ozWLiX9XGM1j+WiqaxVdi7h60EKqIeZcJK6GiUPP3oI1QRtyWKVEbobBQr3IvE4ZCEbGVvNDo78Gre+8PxeR3fEmhCoAzD1+uNnWFolkMZu4BaHVhDuLs88H6wnTi/DN6AKGoF2cSeISNIEybxdAmBAhhCjH4jB5DGF+o4X0yIMJYomCfDIowrlAl+2RghDFE0T4ZHKG+UGV71YCE2lkU7lVDEuqI0r1qUEINUbydEkso70X5bkMwoXQWFftF0YQyomY7JZxQUqiqLc14wjBRt6UZUBgqVOWWZkThPFG76x5SOFeo6i3NmEL/LOpfKwAV+ogRu+5RhdOFGvPmC6xw8qFtzHsTuMJxoca9+QIsHBIj33xBFl4WauybL9DC/ixGv32GLfxHjH85C1x4Jia8fYYuPL03kPD2GbzweRaT3gDFFza3j0kvSL4B4cH3bzzL8gaEiaFQHwqtQ6E+FFqHQn0otA6F+lBoHQr1odA6FOozI/T9dz5FszQUupvPNeIDFhCW/P+e/PECSwjBQiGF+KGQQvxQSCF+KKQQPxRSiB8KKcQPhRTih0KvsH0ruY8UHj68lfx4iBMyDMMwDMMwDMMwDMMwDMP8r/kLTI+WDiEhECMAAAAASUVORK5CYII=" rel="icon">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+<body>
+    <form method="post">
+    <div class="container">
+        <div class="row">
+                  
+            <div class="col-md-8 col-md-offset-2">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                       <h1 class="panel-title">Online Student Voting System</h1>
+                    </div>
+                    
+                    <div class="alert alert-info">
+                            <b>NOTE:</b> You can only <b>VOTE ONCE</b>. 
+                            <br>Please input your <b>LASTNAME and LRN </b> on the form provided below.
+                    </div>
+                    <div class="alert alert-info">
+                               If fail to log in, pls refer to the election facilitator for further assistance.
+                            </div>
+                        <form role="form">
+                            <fieldset>
+                                <div class="form-group"><b>Learners Reference Number:</b>
+                                    <input class="form-control" placeholder="" name="lrn" type="text" required="" >
+                                </div>
+                                <div class="form-group"><b>Last Name:</b>
+                                    <input class="form-control" placeholder="" name="lastname" type="text" required="" >
+                                </div>
+                                <!-- Change this to a button or input when using this as a form -->
+                               <a button type="submit"  href="uservoting.html" class="btn btn-lg btn-success btn-block">Login</button></a>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+
+</body>
+
+</html>
